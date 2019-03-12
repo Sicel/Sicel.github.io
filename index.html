@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Cristian Cordoba - Portfolio</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/content.js"></script>
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <ul id="nav">
+        <li><a href="#aboutme">About me</a></li>
+        <li><a href="#toprojects">Projects</a></li>
+        <li><a href="#resumetitle">Resume</a></li>
+        <li><a href="#tocontactme">Contact Me</a></li>
+    </ul>
+    <header>
+        <h1>Cristian Cordoba</h1>
+        <p>Up and Coming Game Designer</p>
+    </header>
+
+    <h2 id="aboutmehead">About Me</h2>
+    <div class="row section1" id="aboutme">
+        <div class="container">
+            <div class="one-third column" id="picofme">
+                <img src="img/me.jpg">
+            </div>
+            <div class="two-thirds column">
+                <p>Current Game Design and Development student speacialized in C# and Java</p>
+            </div>
+        </div>
+    </div>
+
+    <area class="space" id="toprojects">
+
+    <div class="section2" id="projects">
+        <h2>Projects</h2>
+        <div class="container">
+            <div class="row">
+                <div class="six columns project">
+                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
+                    <h5 class="projecttitle">Name</h5>
+                    <p class="projectdescription">Project Description</p>
+                </div>
+                <div class="six columns project">
+                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
+                    <h5 class="projecttitle">Name</h5>
+                    <p class="projectdescription">Project Description</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns project">
+                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
+                    <h5 class="projecttitle">Name</h5>
+                    <p class="projectdescription">Project Description</p>
+                </div>
+                <div class="six columns project">
+                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
+                    <h5 class="projecttitle">Name</h5>
+                    <p class="projectdescription">Project Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="resumetitle">Resume <img src="img/arrow-in-circle-point-to-up.png" id="arrow"></h2>
+    <div class="row" id="resume">
+        <embed src="pdf/Resume.pdf#toolbar=1&statusbar=1&zoom=scale" type="application/pdf" class="twelve columns" id="pdf" />
+        <div>Icons made by <a href="https://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </div>
+    <area class="space" id="tocontactme">
+
+    <div class="section2" id="contactme">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form method="post" action="php/action.php" id="mailform">
+                <div class="row">
+                    <div class="one-half column">
+                        <label id="name">Name</label>
+                        <input name="name" placeholder="Your Name">
+                    </div>
+
+                    <div class="one-half column">
+                        <label id="email">E-mail</label>
+                        <input name="email" type="email" placeholder="abc@example.com">
+                    </div>
+                </div>
+
+                <label id="message">Message</label>
+                <textarea name="message" placeholder="Type Message Here"></textarea>
+
+                <div class="row">
+                    <div class="one-third column">
+                        <label id="reason">Reason for E-mail</label>
+                        <select name="reason">
+                            <option value="class">Class Related</option>
+                            <option value="inquiry">Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="two-thirds column">
+                        <label id="human">*What is 1+3 (Anti-Spam)</label>
+                        <input name="human" placeholder="Answer">
+                    </div>
+                </div>
+                <input id="submit" name="submit" type="submit" value="Submit">
+            </form>
+            <?php include 'php/mailform.php';?>
+        </div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+Overview:
+    This was another last-minute rushed project so it' snot at the level I want it to be at to be at. It's good as a starter but not much else. I will continue to update mmy portfolio until I consider it "good."
+    
+    Until then, here is what I have as of now:
+    
+    -HTML:
+        > Pretty much everything is in a div.
+        > Embedded Resume using <embed> tag
+        > Navigation links send you to specific part of page but nav covers title
+        > "Resume" section includes source for arrow image
+        
+    -CSS:
+        > Using Skeleton framework
+        > Simple design meant look professional
+        > (Mostly) Responsive
+        > Updated display of mail form
+        
+    -PHP:
+        > Used mail form exercise
+        
+    -JavaScript:
+        > Shows / hides resume
+        > Animates image next to "Resume"
+        
+    -Images:
+        > Icon made by Elegant Themes (www.flaticon.com/authors/elegant-themes) from www.flaticon.com is licensed by CC 3.0 BY
+        > Placeholder Images from placeholder.com
