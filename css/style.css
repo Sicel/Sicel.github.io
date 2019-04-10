@@ -81,6 +81,7 @@ header p {
 
 .project {
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .projecttitle,
@@ -91,6 +92,36 @@ header p {
 .projectdescription {
     margin: 3px auto;
 }
+
+/*----Full Info----*/
+#fullinfo {
+    padding: 20px 5px;
+    margin: 5px 0;
+    background-color: grey;
+    box-shadow: inset 0px 5px 30px 10px;
+}
+
+#media {
+}
+
+#mediabuttons {
+    height: 70px;
+    border-top: 1px solid black;
+}
+
+.mediaicons {
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60px;
+}
+
+#fulltext {
+    
+}
+
+/*-----------------*/
 
 /*--------------*/
 
