@@ -93,35 +93,42 @@ header p {
     margin: 3px auto;
 }
 
-/*----Full Info----*/
-#fullinfo {
-    padding: 20px 5px;
-    margin: 5px 0;
-    background-color: grey;
+/*-----Full Info-----*/
+#fullInfo {
+    width: 100%;
+    padding: 25px 0;
+    background-color: dimgrey;
     box-shadow: inset 0px 5px 30px 10px;
 }
 
 #media {
+    display: block;
 }
 
-#mediabuttons {
-    height: 70px;
-    border-top: 1px solid black;
+#mediaContainer {
+    margin: auto;
 }
 
-.mediaicons {
-    margin-top: 5px;
+#mediaButtons {
+    margin: auto;
+    border-top: 1px solid grey;
+}
+
+.mediaIcons {
+    margin-bottom: 0;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid silver;
     border-radius: 5px;
-    width: 60px;
+    width: 50px;
 }
 
-#fulltext {
-    
+#fullText {}
+
+#projectSummary {
+    margin: auto;
 }
 
-/*-----------------*/
+/*-------------------*/
 
 /*--------------*/
 
@@ -151,6 +158,7 @@ a {
 #pdf {
     height: 800px;
 }
+
 /*------------*/
 
 /*---Contact Me---*/
@@ -179,11 +187,14 @@ textarea {
     color: #3a3a3a;
 }
 
-input[name="name"], input[name="email"], input[name="human"] {
+input[name="name"],
+input[name="email"],
+input[name="human"] {
     width: 95%;
 }
 
-input[name="email"], #email {
+input[name="email"],
+#email {
     margin-left: 5%;
 }
 
@@ -233,11 +244,11 @@ footer {
     #picofme img {
         width: 65%;
     }
-    
+
     #arrow {
         width: 20px;
     }
-    
+
     input[name="email"] {
         margin: auto;
         width: 100%;
