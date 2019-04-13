@@ -95,10 +95,12 @@ header p {
 
 /*-----Full Info-----*/
 #fullInfo {
-    width: 100%;
+    width: 110%;
+    position: relative;
+    left: -5%;
     padding: 25px 0;
     background-color: dimgrey;
-    box-shadow: inset 0px 5px 30px 10px;
+    box-shadow: inset 0px 1px 30px 7px;
 }
 
 #media {
