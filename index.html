@@ -26,7 +26,8 @@
 
     <!-- JavaScript
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="js/read-in-info.js"></script>
     <script src="js/content.js"></script>
 
     <!-- Favicon
@@ -50,10 +51,10 @@
         <p>Up and Coming Game Designer</p>
     </header>
 
-    <h2 id="aboutmehead">About Me</h2>
+    <h2 id="aboutMeHead">About Me</h2>
     <div class="row section1" id="aboutme">
         <div class="container">
-            <div class="one-third column" id="picofme">
+            <div class="one-third column" id="picOfMe">
                 <img src="img/me.jpg">
             </div>
             <div class="two-thirds column">
@@ -71,15 +72,15 @@
 
             <div class="row">
 
-                <div class="six columns project">
-                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projecttitle">Name</h5>
-                    <p class="projectdescription">Project Description</p>
+                <div class="six columns project" id="project1" onclick="showFullInfo(1)">
+                    <img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg">
+                    <h5 class="projectTitle">Procrastination</h5>
+                    <div class="arrowUp"></div>
                 </div>
-                <div class="six columns project">
+                <div class="six columns project" id="project2" onclick="showFullInfo(2)">
                     <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projecttitle">Name</h5>
-                    <p class="projectdescription">Project Description</p>
+                    <h5 class="projectTitle">Name</h5>
+                    <div class="arrowUp"></div>
                 </div>
 
             </div>
@@ -90,23 +91,36 @@
 
             <div class="container">
                 <div class="one-third column" id="media">
-                    <div id="mediaContainer"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg">
-                        <div id="slideshowContainer"></div>
+                    <div id="mediaContainer">
+                        <div id="slideshowContainer">
+                            <div class="myImages fade">
+                                <div class="numberText">1 / 3</div>
+                                <img src="https://via.placeholder.com/600x500?text=Slideshow+Image" class="slideshowImages">
+                                <div class="imageCaption">Caption</div>
+                            </div>
+                            <div class="myImages fade">
+                                <div class="numberText">2 / 3</div>
+                                <img src="https://via.placeholder.com/600x500?text=Slideshow+Image" class="slideshowImages">
+                                <div class="imageCaption">Caption</div>
+                            </div>
+                            <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="nextSlide(1)">&#10095;</a>
+                        </div>
                         <div id="projectGif"></div>
                         <div id="projectVideo"></div>
                     </div>
                     <div id="mediaButtons">
-                        <input type="image" class="mediaIcons" id="slideshowIcon" src="img/slideshow.png">
-                        <input type="image" class="mediaIcons" id="gifIcon" src="img/gif-file-format-symbol.png">
-                        <input type="image" class="mediaIcons" id="videoIcon" src="img/youtube.png">
+                        <input type="image" class="mediaIcons" id="slideshowIcon" src="img/icons/slideshow.png">
+                        <input type="image" class="mediaIcons" id="gifIcon" src="img/icons/gif-file-format-symbol.png">
+                        <input type="image" class="mediaIcons" id="videoIcon" src="img/icons/youtube.png">
                     </div>
                 </div>
 
-                <div class="two-thirds column" id="fulltext">
-                    <div class="projectTitle">Name</div>
-                    <div id=projectsummary>
+                <div class="two-thirds column" id="fullText">
+                    <h4 class="projectTitle" id="titleInFull">Name</h4>
+                    <div id=projectSummary>
                         <p id="summary">Project Summary</p>
-                        <p id="myResponsibilities">Stuff I did</p>
+                        <p id="myResponsibilities">Responsibilities:</p>
                     </div>
                 </div>
             </div>
@@ -117,15 +131,15 @@
 
             <div class="row">
 
-                <div class="six columns project">
+                <div class="six columns project" id="project3" onclick="showFullInfo(3)">
+                    <div class="arrowDown"></div>
                     <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projecttitle">Name</h5>
-                    <p class="projectdescription">Project Description</p>
+                    <h5 class="projectTitle">Name</h5>
                 </div>
-                <div class="six columns project">
-                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projecttitle">Name</h5>
-                    <p class="projectdescription">Project Description</p>
+                <div class="six columns project" id="project4" onclick="showFullInfo(4)">
+                    <div class="arrowDown"></div>
+                    <img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg">
+                    <h5 class="projectTitle">Audio Run</h5>
                 </div>
 
             </div>
@@ -134,17 +148,16 @@
 
     </div>
 
-    <h2 id="resumetitle">Resume <img src="img/arrow-in-circle-point-to-up.png" id="arrow"></h2>
+    <h2 id="resumeTitle" onclick="displayResume()">Resume <img src="img/icons/arrow-in-circle-point-to-up.png" id="arrow"></h2>
     <div class="row" id="resume">
         <embed src="pdf/Resume.pdf#toolbar=1&statusbar=1&zoom=scale" type="application/pdf" class="twelve columns" id="pdf" />
         <div>Icons made by <a href="https://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </div>
-    <area class="space" id="tocontactme">
 
-    <div class="section2" id="contactme">
+    <div class="section2" id="contactMe">
         <div class="container">
             <h2>Contact Me</h2>
-            <form method="post" action="php/action.php" id="mailform">
+            <form method="post" action="php/action.php" id="mailForm">
                 <div class="row">
                     <div class="one-half column">
                         <label id="name">Name</label>
@@ -191,6 +204,4 @@
 
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-
-</html>
+</body></html>
