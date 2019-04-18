@@ -29,7 +29,7 @@ playButton = new Button("play", appWidth / 2, 3 * appHeight / 4);
 playButton.anchor.set(0.5, 0.5);
 playButton.on("mousedown", startGame);
 
-ipod = new PIXI.Sprite(PIXI.Texture.fromImage("project4/images/Audio Run/title_audioRun_1.png"));
+ipod = new PIXI.Sprite(PIXI.Texture.fromImage("AudioRun/images/Audio Run/title_audioRun_1.png"));
 ipod.width = appWidth;
 ipod.height = appHeight;
 ipod.x = 0;
@@ -60,7 +60,7 @@ function pause() {
 timeSurvived = new Label(`Time Survived: `, appWidth / 2, appHeight / 5, 36, "Verdana", 0xFFFFFF);
 timeSurvived.anchor.set(0.5, 0.5);
 
-end = new PIXI.Sprite(PIXI.Texture.fromImage("project4/images/Audio Run/end_audioRun_1.png"));
+end = new PIXI.Sprite(PIXI.Texture.fromImage("AudioRun/images/Audio Run/end_audioRun_1.png"));
 end.width = appWidth;
 end.height = appHeight;
 end.x = 0;

@@ -1,7 +1,7 @@
 "use strict";
 class Character extends PIXI.Sprite {
     constructor(x = 300, y = 300) {
-        super(PIXI.loader.resources["project4/images/New Piskel.png"].texture);
+        super(PIXI.loader.resources["AudioRun/images/New Piskel.png"].texture);
         this.scale.set(1);
         this.x = x;
         this.y = y;

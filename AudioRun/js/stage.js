@@ -2,9 +2,9 @@
 let ground = [];
 
 let buildings = [
-    new PIXI.Texture.fromImage("project4/images/Buildings/Buildings/large_building_1.png"),
-    new PIXI.Texture.fromImage("project4/images/Buildings/Buildings/medium_building_1.png"),
-    new PIXI.Texture.fromImage("project4/images/Buildings/Buildings/small_building_1.png")
+    new PIXI.Texture.fromImage("AudioRun/images/Buildings/Buildings/large_building_1.png"),
+    new PIXI.Texture.fromImage("AudioRun/images/Buildings/Buildings/medium_building_1.png"),
+    new PIXI.Texture.fromImage("AudioRun/images/Buildings/Buildings/small_building_1.png")
 ];
 
 function createGround(x = 0, y = 350, width = 600, height = 250) {

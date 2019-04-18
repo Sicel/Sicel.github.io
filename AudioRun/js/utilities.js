@@ -19,7 +19,7 @@ inGameMusic = [
     }
 ];
 
-createjs.Sound.registerSounds(inGameMusic, "project4/music/");
+createjs.Sound.registerSounds(inGameMusic, "AudioRun/music/");
 
 function keyboard(value) {
     let key = {};
@@ -123,33 +123,33 @@ class Button extends PIXI.Sprite {
         switch (type) {
             case "play":
                 this.button = [
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Play Button/play_0.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Play Button/play_1.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Play Button/play_2.png")
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Play Button/play_0.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Play Button/play_1.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Play Button/play_2.png")
                 ];
                 break;
 
             case "pause":
                 this.button = [
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Pause Button/pause_0.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Pause Button/pause_1.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Pause Button/pause_2.png")
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Pause Button/pause_0.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Pause Button/pause_1.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Pause Button/pause_2.png")
                 ];
                 break;
 
             case "stop":
                 this.button = [
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Stop Button/stop_0.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Stop Button/stop_1.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Stop Button/stop_2.png")
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Stop Button/stop_0.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Stop Button/stop_1.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Stop Button/stop_2.png")
                 ];
                 break;
 
             case "replay":
                 this.button = [
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Replay Button/replay_0.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Replay Button/replay_1.png"),
-                    new PIXI.Texture.fromImage("project4/images/Buttons/Replay Button/replay_2.png")
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Replay Button/replay_0.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Replay Button/replay_1.png"),
+                    new PIXI.Texture.fromImage("AudioRun/images/Buttons/Replay Button/replay_2.png")
                 ];
                 break;
         }

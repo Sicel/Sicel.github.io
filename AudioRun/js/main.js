@@ -1,6 +1,6 @@
 "use strict";
-$.getScript("project4/js/stage.js");
-$.getScript("project4/js/scenes.js");
+$.getScript("AudioRun/js/stage.js");
+$.getScript("AudioRun/js/scenes.js");
 const app = new PIXI.Application(1024, 576);
 
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
@@ -12,7 +12,7 @@ game.appendChild(app.view);
 const appWidth = app.screen.width;
 const appHeight = app.screen.height;
 
-PIXI.loader.add(["project4/images/New Piskel.png"]).on("progress", e => {
+PIXI.loader.add(["AudioRun/images/New Piskel.png"]).on("progress", e => {
     console.log(`progress=${e.progress}`)
 }).load(Setup);
 
@@ -22,14 +22,14 @@ function Setup() {
 
     groundSlide = 5;
 
-    backGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("project4/images/Cyber Punk/far-buildings.png"), appWidth, 192);
+    backGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("AudioRun/images/Cyber Punk/far-buildings.png"), appWidth, 192);
     backGround.scale.set(3.5);
     backGround.x = 0;
     backGround.y = 0;
     backGround.tilePosition.x = 0;
     backGround.tilePosition.y = 0;
 
-    middleGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("project4/images/Cyber Punk/back-buildings.png"), appWidth, 192);
+    middleGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("AudioRun/images/Cyber Punk/back-buildings.png"), appWidth, 192);
     middleGround.scale.set(2.5);
     middleGround.x = 0;
     middleGround.y = 100;
