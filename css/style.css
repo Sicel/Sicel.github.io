@@ -87,6 +87,10 @@ header p {
     margin: 20px 0;
 }
 
+.project .summary {
+    display: none;
+}
+
 .projectTitle,
 .projectDescription {
     margin-bottom: 0;
@@ -244,10 +248,21 @@ header p {
 #fullText {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: aliceblue;
 }
 
 #projectSummary {
     margin: auto;
+}
+
+.myResponsibilities {
+    width: 50%;
+    float: left;
+}
+
+.techUsed {
+    width: 50%;
+    float: right;
 }
 
 /*----------------------*/

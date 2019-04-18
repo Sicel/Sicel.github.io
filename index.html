@@ -74,12 +74,14 @@
 
                 <div class="six columns project" id="project1" onclick="showFullInfo(1)">
                     <img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg">
-                    <h5 class="projectTitle">Procrastination</h5>
+                    <h5 class="projectTitle">Sustainability Basket &#40;WIP&#41;</h5>
+                    <p class="summary">Hey look a summary</p>
                     <div class="arrowUp"></div>
                 </div>
                 <div class="six columns project" id="project2" onclick="showFullInfo(2)">
                     <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projectTitle">Name</h5>
+                    <h5 class="projectTitle">Procrastination</h5>
+                    <p class="summary">What I'm doing right now</p>
                     <div class="arrowUp"></div>
                 </div>
 
@@ -92,17 +94,19 @@
             <div class="container">
                 <div class="one-third column" id="media">
                     <div id="mediaContainer">
-                        <div id="slideshowContainer">
-                            <div class="myImages fade">
-                                <div class="numberText">1 / 3</div>
-                                <img src="https://via.placeholder.com/600x500?text=Slideshow+Image" class="slideshowImages">
-                                <div class="imageCaption">Caption</div>
-                            </div>
-                            <div class="myImages fade">
-                                <div class="numberText">2 / 3</div>
-                                <img src="https://via.placeholder.com/600x500?text=Slideshow+Image" class="slideshowImages">
-                                <div class="imageCaption">Caption</div>
-                            </div>
+                        <div id="slideshowContainer" id="slideshow1">
+                            <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="nextSlide(1)">&#10095;</a>
+                        </div>
+                        <div id="slideshowContainer" id="slideshow2">
+                            <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="nextSlide(1)">&#10095;</a>
+                        </div>
+                        <div id="slideshowContainer" id="slideshow3">
+                            <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+                            <a class="next" onclick="nextSlide(1)">&#10095;</a>
+                        </div>
+                        <div id="slideshowContainer" id="slideshow4">
                             <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
                             <a class="next" onclick="nextSlide(1)">&#10095;</a>
                         </div>
@@ -119,8 +123,15 @@
                 <div class="two-thirds column" id="fullText">
                     <h4 class="projectTitle" id="titleInFull">Name</h4>
                     <div id=projectSummary>
-                        <p id="summary">Project Summary</p>
-                        <p id="myResponsibilities">Responsibilities:</p>
+                        <p class="summary">Project Summary</p>
+                        <ul class="myResponsibilities">
+                            Responsibilities:
+                            <li></li>
+                        </ul>
+                        <ul class="techUsed">
+                            Technologies Used:
+                            <li></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -134,12 +145,14 @@
                 <div class="six columns project" id="project3" onclick="showFullInfo(3)">
                     <div class="arrowDown"></div>
                     <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg"></a>
-                    <h5 class="projectTitle">Name</h5>
+                    <h5 class="projectTitle">Audio Run</h5>
+                    <p class="summary">Endless runner game made using JavaScript for web dev class. Click <a href="audiorun.html">here</a> to play.</p>
                 </div>
                 <div class="six columns project" id="project4" onclick="showFullInfo(4)">
                     <div class="arrowDown"></div>
                     <img src="https://via.placeholder.com/200x150?text=Project+Image" class="projectimg">
-                    <h5 class="projectTitle">Audio Run</h5>
+                    <h5 class="projectTitle">Oirem</h5>
+                    <p class="summary"></p>
                 </div>
 
             </div>
@@ -204,4 +217,6 @@
 
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body></html>
+</body>
+
+</html>

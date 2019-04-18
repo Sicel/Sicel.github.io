@@ -22,8 +22,8 @@ $(document).ready(function () {
 
 // Displays full info of selected project
 function showFullInfo(selectedProject) {
-    let arrowIndex = (selectedProject < 3) ? 2 : 0;
     let projectToShow = document.getElementById("project" + selectedProject);
+    let arrowIndex = (selectedProject < 3) ? projectToShow.childElementCount - 1 : 0;
 
     if (!fullInfoShowing) {
         fullInfo.style.display = "block";
@@ -39,10 +39,10 @@ function showFullInfo(selectedProject) {
             projectToShow.style.margin = "20px 0";
             return;
         } else {
-            let index = (currentShowingProject < 3) ? 2 : 0;
+            arrowIndex = (currentShowingProject < 3) ? currentlyShowing.childElementCount - 1 : 0;
 
             currentlyShowing.style.margin = "20px 0";
-            currentlyShowing.children[index].style.display = "none";
+            currentlyShowing.children[arrowIndex].style.display = "none";
         }
     }
     currentShowingProject = selectedProject;
@@ -50,18 +50,20 @@ function showFullInfo(selectedProject) {
 }
 
 function updateFullInfo() {
-    let index = (currentShowingProject < 3) ? 1 : 2;
-    let arrowIndex = (index == 1) ? 2 : 0;
     let selectedProject = document.getElementById("project" + currentShowingProject);
+    let index = (currentShowingProject < 3) ? 1 : 2;
+    let sumIndex = (index == 1) ? 2 : 3;
 
     if (currentShowingProject < 3) {
         selectedProject.style.marginBottom = "0";
+        selectedProject.lastElementChild.style.display = "block";
     } else {
         selectedProject.style.marginTop = "0";
+        selectedProject.firstElementChild.style.display = "block";
     }
 
-    selectedProject.children[arrowIndex].style.display = "block";
     document.getElementById("titleInFull").innerHTML = selectedProject.children[index].innerHTML;
+    document.getElementById("projectSummary").firstElementChild.innerHTML = selectedProject.children[sumIndex].innerHTML;
 }
 
 // Animates resume
@@ -120,5 +122,5 @@ function showSlides(n) {
         slides[i].style.display = "none";
     }
 
-    slides[slideIndex - 1].style.display = "block";
+    //slides[slideIndex - 1].style.display = "block";
 }
