@@ -11,17 +11,19 @@ let displayArrow;
 let degree = 90;
 let resume;
 
-let slideIndex = 1;
+let slideIndex = [1, 1, 1, 1];
+let slideId = ["myImages1", "myImages2", "myImages3", "myImages4"];
+
 // After page has loaded
 $(document).ready(function () {
     fullInfo = document.getElementById("fullInfo");
     resume = document.getElementById("resume");
     displayArrow = document.getElementById("arrow");
-    showSlides(slideIndex);
 });
 
 // Displays full info of selected project
 function showFullInfo(selectedProject) {
+    debugger;
     let projectToShow = document.getElementById("project" + selectedProject);
     let arrowIndex = (selectedProject < 3) ? projectToShow.childElementCount - 1 : 0;
 
@@ -29,6 +31,7 @@ function showFullInfo(selectedProject) {
         fullInfo.style.display = "block";
         fullInfoShowing = true;
         projectToShow.children[arrowIndex].style.display = "block";
+        slideshowContainers[selectedProject - 1].style.display = "block";
     } else {
         let currentlyShowing = document.getElementById("project" + currentShowingProject);
 
@@ -36,13 +39,25 @@ function showFullInfo(selectedProject) {
             fullInfo.style.display = "none";
             fullInfoShowing = false;
             projectToShow.children[arrowIndex].style.display = "none";
-            projectToShow.style.margin = "20px 0";
+            slideshowContainers[selectedProject - 1].style.display = "none";
+
+            if (selectedProject - 1 == 0) {
+                projectToShow.style.margin = "34px 0 0";
+            } else {
+                projectToShow.style.margin = "20px 0";
+            }
             return;
         } else {
             arrowIndex = (currentShowingProject < 3) ? currentlyShowing.childElementCount - 1 : 0;
 
-            currentlyShowing.style.margin = "20px 0";
+            if (currentShowingProject - 1 == 0) {
+                currentlyShowing.style.margin = "34px 0 0";
+            } else {
+                currentlyShowing.style.margin = "20px 0";
+            }
             currentlyShowing.children[arrowIndex].style.display = "none";
+            slideshowContainers[currentShowingProject - 1].style.display = "none";
+            slideshowContainers[selectedProject - 1].style.display = "block";
         }
     }
     currentShowingProject = selectedProject;
@@ -64,6 +79,7 @@ function updateFullInfo() {
 
     document.getElementById("titleInFull").innerHTML = selectedProject.children[index].innerHTML;
     document.getElementById("projectSummary").firstElementChild.innerHTML = selectedProject.children[sumIndex].innerHTML;
+    showSlides(1, currentShowingProject - 1);
 }
 
 // Animates resume
@@ -71,56 +87,57 @@ function displayResume() {
     let animation = setInterval(rotateArrow, 7)
 
     if (!resumeShowing) {
-        resume.style.display = "block";
         $("#resume").toggle(500);
+        resume.style.display = "block";
         resumeShowing = true;
     } else {
         $("#resume").toggle(500);
         resumeShowing = false;
     }
+    rotateArrow();
+}
 
-    function rotateArrow() {
-        if (!resumeShowing) {
-            if (degree == 180) {
-                clearInterval(animation);
-            } else {
-                degree++;
-                displayArrow.style.transform = `rotate(${degree}deg)`;
-            }
+function rotateArrow() {
+    if (!resumeShowing) {
+        if (degree == 180) {
+            clearInterval(animation);
         } else {
-            if (degree == 90) {
-                clearInterval(animation);
-            } else {
-                degree--;
-                displayArrow.style.transform = `rotate(${degree}deg)`;
-            }
+            degree++;
+            displayArrow.style.transform = `rotate(${degree}deg)`;
+        }
+    } else {
+        if (degree == 90) {
+            clearInterval(animation);
+        } else {
+            degree--;
+            displayArrow.style.transform = `rotate(${degree}deg)`;
         }
     }
 }
 
 
-function nextSlide(n) {
-    showSlides(slideIndex += n);
+function nextSlide(n, no) {
+    showSlides(slideIndex[no] += n, no);
 }
 
-function currentSlide(n) {
+function currentSlide(n, no) {
     showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("myImages");
+function showSlides(n, no) {
+    debugger;
+    let slides = document.getElementsByClassName(slideId[no]);
 
     if (n > slides.length) {
-        slideIndex = 1;
+        slideIndex[no] = 1;
     }
     if (n < 1) {
-        slideIndex = slides.length;
+        slideIndex[no] = slides.length;
     }
 
-    for (i = 0; i < slides.length; i++) {
+    for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
 
-    //slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex[no] - 1].style.display = "block";
 }

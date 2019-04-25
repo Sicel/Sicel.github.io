@@ -5,28 +5,47 @@ let project2Images = [];
 let project3Images = [];
 let project4Images = [];
 let projectImages = [project1Images, project2Images, project3Images, project4Images];
+let slideshowContainers;
 
-//for (int i = 1; i == 4; i++) {
-//$.get('../img/project-images/project'+i, function (data) {
-$.get('../txt/', function (data) {
-    console.log(data);
-    $(data).find("a:contains('.txt'), a:contains('.jk')").each(function () {
-        console.log($(this).attr("href"));
+let project1Captions = [];
+let project2Captions = [];
+let project3Captions = [];
+let project4Captions = [];
+let projectCaptions = [project1Captions, project2Captions, project3Captions, project4Captions];
+
+for (let i = 1; i <= 4; i++) {
+    $.get('../img/projects-images/project' + i + '/', function (data) {
+        $(data).find("a:contains('.png'), a:contains('.PNG')").each(function () {
+            projectImages[i - 1].push($(this).attr("href"));
+            console.log($(this).attr("href"));
+        });
     });
+
+    $.get('../img/projects-images/project' + i + '/Captions.txt', function (data) {
+        data.split("\n").forEach(function (sentence) {
+            projectCaptions[i - 1].push(sentence);
+        });
+    });
+}
+
+$(document).ready(function () {
+    slideshowContainers = document.getElementsByClassName("slideshowContainer");
+    setImages();
 });
-//}
 
 function setImages() {
-    let slideshowContainers = document.getElementsByClassName("slideshowContainer");
     for (let i = 0; i < projectImages.length; i++) {
         let prevButton = slideshowContainers[i].children[0];
-        projectImages[i].forEach(function (image, index) {
+        if (projectImages[i].length == 0) {
+            continue;
+        }
+        projectImages[i].forEach(function (pic, index) {
             let myImages = document.createElement("div");
-            myImages.setAttribute("class", "myImages" + i + " fade");
+            myImages.setAttribute("class", "myImages" + (i + 1) + " fade");
 
             let numberText = document.createElement("div");
             numberText.setAttribute("class", "numberText");
-            numberText.innerHTML = index + " / " + projectImages[i].length;
+            numberText.innerHTML = (index + 1) + " / " + projectImages[i].length;
 
             let image = document.createElement("img");
             image.setAttribute("src", projectImages[i][index]);
@@ -34,6 +53,7 @@ function setImages() {
 
             let caption = document.createElement("div");
             caption.setAttribute("class", "imageCaption");
+            caption.innerHTML = projectCaptions[i][index];
 
             myImages.appendChild(numberText);
             myImages.appendChild(image);

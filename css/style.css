@@ -81,14 +81,23 @@ header p {
 /*---Projects---*/
 #projects {
     text-align: center;
+    overflow-x: hidden;
 }
 
 .project {
     margin: 20px 0;
 }
 
+.project#project1 {
+    margin: 34px 0 0;
+}
+
 .project .summary {
     display: none;
+}
+
+.projectImg {
+    width: 300px;
 }
 
 .projectTitle,
@@ -107,6 +116,10 @@ header p {
     margin: auto;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
+}
+
+.arrowPosition {
+    margin: 0;
     display: none;
 }
 
@@ -116,6 +129,7 @@ header p {
 
 .arrowDown {
     border-top: 20px solid rgb(52, 52, 52);
+    display: none;
 }
 
 /*-----Full Info-----*/
@@ -134,21 +148,27 @@ header p {
 
 /*--------Media---------*/
 #media {
-    display: block;
     margin: 20px 0;
 }
 
 #mediaContainer {
+    float: right;
     width: 100%;
 }
 
 /*---------Slideshow---------*/
-#slideshowContainer {
+.slideshowContainer {
+    display: inline-block;
+    width: 130%;
     position: relative;
     margin: auto;
+    display: none;
 }
 
-.myImages {
+.myImages1,
+.myImages2,
+.myImages3,
+.myImages4 {
     display: none;
 }
 
@@ -192,7 +212,6 @@ header p {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
-    position: absolute;
     bottom: 8px;
     width: 100%;
     text-align: center;
@@ -225,16 +244,19 @@ header p {
 
 #mediaButtons {
     border-top: 1px solid grey;
+    display: inline-block;
+    margin: auto;
+    width: 20%;
+    display: none;
 }
 
 .mediaIcons {
-    display: inline-block;
+    display: block;
     margin: auto;
-    margin-bottom: 0;
     background-color: white;
     border: 1px solid silver;
     border-radius: 5px;
-    width: 25%;
+    width: 100%;
 }
 
 .mediaIcons:hover,
