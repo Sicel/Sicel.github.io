@@ -94,26 +94,27 @@ function displayResume() {
         $("#resume").toggle(500);
         resumeShowing = false;
     }
-    rotateArrow();
-}
 
-function rotateArrow() {
-    if (!resumeShowing) {
-        if (degree == 180) {
-            clearInterval(animation);
+    function rotateArrow() {
+        if (!resumeShowing) {
+            if (degree == 180) {
+                clearInterval(animation);
+            } else {
+                degree++;
+                displayArrow.style.transform = `rotate(${degree}deg)`;
+            }
         } else {
-            degree++;
-            displayArrow.style.transform = `rotate(${degree}deg)`;
-        }
-    } else {
-        if (degree == 90) {
-            clearInterval(animation);
-        } else {
-            degree--;
-            displayArrow.style.transform = `rotate(${degree}deg)`;
+            if (degree == 90) {
+                clearInterval(animation);
+            } else {
+                degree--;
+                displayArrow.style.transform = `rotate(${degree}deg)`;
+            }
         }
     }
 }
+
+
 
 
 function nextSlide(n, no) {
