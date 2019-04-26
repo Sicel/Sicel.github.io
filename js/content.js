@@ -7,7 +7,9 @@ let fullInfo;
 let fullInfoShowing = false;
 let currentShowingProject;
 
-let displayArrow;
+let arrows = ["arrow1", "arrow2", "arrow3", "arrow4"];
+
+let resumeArrow;
 let degree = 90;
 let resume;
 
@@ -18,19 +20,17 @@ let slideId = ["myImages1", "myImages2", "myImages3", "myImages4"];
 $(document).ready(function () {
     fullInfo = document.getElementById("fullInfo");
     resume = document.getElementById("resume");
-    displayArrow = document.getElementById("arrow");
+    resumeArrow = document.getElementById("resumeArrow");
 });
 
 // Displays full info of selected project
 function showFullInfo(selectedProject) {
-    debugger;
     let projectToShow = document.getElementById("project" + selectedProject);
-    let arrowIndex = (selectedProject < 3) ? projectToShow.childElementCount - 1 : 0;
 
     if (!fullInfoShowing) {
         fullInfo.style.display = "block";
         fullInfoShowing = true;
-        projectToShow.children[arrowIndex].style.display = "block";
+        document.getElementById(arrows[selectedProject - 1]).style.visibility = "visible";
         slideshowContainers[selectedProject - 1].style.display = "block";
     } else {
         let currentlyShowing = document.getElementById("project" + currentShowingProject);
@@ -38,24 +38,16 @@ function showFullInfo(selectedProject) {
         if (currentShowingProject == selectedProject) {
             fullInfo.style.display = "none";
             fullInfoShowing = false;
-            projectToShow.children[arrowIndex].style.display = "none";
+            document.getElementById(arrows[selectedProject - 1]).style.visibility = "hidden";
             slideshowContainers[selectedProject - 1].style.display = "none";
 
-            if (selectedProject - 1 == 0) {
-                projectToShow.style.margin = "34px 0 0";
-            } else {
-                projectToShow.style.margin = "20px 0";
-            }
+            projectToShow.style.margin = "20px 0";
+
             return;
         } else {
-            arrowIndex = (currentShowingProject < 3) ? currentlyShowing.childElementCount - 1 : 0;
 
-            if (currentShowingProject - 1 == 0) {
-                currentlyShowing.style.margin = "34px 0 0";
-            } else {
-                currentlyShowing.style.margin = "20px 0";
-            }
-            currentlyShowing.children[arrowIndex].style.display = "none";
+            currentlyShowing.style.margin = "20px 0";
+            document.getElementById(arrows[currentShowingProject - 1]).style.visibility = "hidden";
             slideshowContainers[currentShowingProject - 1].style.display = "none";
             slideshowContainers[selectedProject - 1].style.display = "block";
         }
@@ -65,21 +57,26 @@ function showFullInfo(selectedProject) {
 }
 
 function updateFullInfo() {
+    //debugger;
     let selectedProject = document.getElementById("project" + currentShowingProject);
-    let index = (currentShowingProject < 3) ? 1 : 2;
-    let sumIndex = (index == 1) ? 2 : 3;
+    let responsibilities = document.getElementById("fullText").getElementsByClassName("myResponsibilities")[0];
+    let tech = document.getElementById("fullText").getElementsByClassName("techUsed")[0];
 
     if (currentShowingProject < 3) {
         selectedProject.style.marginBottom = "0";
-        selectedProject.lastElementChild.style.display = "block";
     } else {
         selectedProject.style.marginTop = "0";
-        selectedProject.firstElementChild.style.display = "block";
     }
 
-    document.getElementById("titleInFull").innerHTML = selectedProject.children[index].innerHTML;
-    document.getElementById("projectSummary").firstElementChild.innerHTML = selectedProject.children[sumIndex].innerHTML;
+    document.getElementById(arrows[currentShowingProject - 1]).style.visibility = "visible";
+    responsibilities.innerHTML = "Responsibilities:";
+    tech.innerHTML = "Tech Used:"
+    document.getElementById("titleInFull").innerHTML = selectedProject.children[1].innerHTML;
+    document.getElementById("projectSummary").firstElementChild.innerHTML = selectedProject.children[2].innerHTML;
+    responsibilities.innerHTML += selectedProject.getElementsByClassName("myResponsibilities")[0].innerHTML;
+    tech.innerHTML += selectedProject.getElementsByClassName("techUsed")[0].innerHTML;
     showSlides(1, currentShowingProject - 1);
+
 }
 
 // Animates resume
@@ -101,14 +98,14 @@ function displayResume() {
                 clearInterval(animation);
             } else {
                 degree++;
-                displayArrow.style.transform = `rotate(${degree}deg)`;
+                resumeArrow.style.transform = `rotate(${degree}deg)`;
             }
         } else {
             if (degree == 90) {
                 clearInterval(animation);
             } else {
                 degree--;
-                displayArrow.style.transform = `rotate(${degree}deg)`;
+                resumeArrow.style.transform = `rotate(${degree}deg)`;
             }
         }
     }
@@ -126,7 +123,6 @@ function currentSlide(n, no) {
 }
 
 function showSlides(n, no) {
-    debugger;
     let slides = document.getElementsByClassName(slideId[no]);
 
     if (n > slides.length) {

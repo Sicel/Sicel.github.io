@@ -88,11 +88,9 @@ header p {
     margin: 20px 0;
 }
 
-.project#project1 {
-    margin: 34px 0 0;
-}
-
-.project .summary {
+.project .summary,
+.project .myResponsibilities,
+.project .techUsed {
     display: none;
 }
 
@@ -109,6 +107,11 @@ header p {
     margin: 3px auto;
 }
 
+.arrow {
+    margin: 0;
+    visibility: hidden;
+}
+
 .arrowUp,
 .arrowDown {
     width: 0;
@@ -118,18 +121,12 @@ header p {
     border-right: 20px solid transparent;
 }
 
-.arrowPosition {
-    margin: 0;
-    display: none;
-}
-
 .arrowUp {
     border-bottom: 20px solid rgb(49, 49, 49);
 }
 
 .arrowDown {
     border-top: 20px solid rgb(52, 52, 52);
-    display: none;
 }
 
 /*-----Full Info-----*/
@@ -142,9 +139,10 @@ header p {
     display: none;
 }
 
-#fullInfo .container {
+/*#fullInfo .container {
     width: 75%;
-}
+    margin: auto;
+}*/
 
 /*--------Media---------*/
 #media {
@@ -153,13 +151,17 @@ header p {
 
 #mediaContainer {
     float: right;
-    width: 100%;
+    position: absolute;
+    width: inherit;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-right: 0px;
 }
 
 /*---------Slideshow---------*/
 .slideshowContainer {
     display: inline-block;
-    width: 130%;
+    width: 100%;
     position: relative;
     margin: auto;
     display: none;
@@ -182,7 +184,7 @@ header p {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 45%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -213,7 +215,6 @@ header p {
     font-size: 12px;
     padding: 8px 12px;
     bottom: 8px;
-    width: 100%;
     text-align: center;
 }
 
@@ -277,13 +278,18 @@ header p {
     margin: auto;
 }
 
+.myResponsibilities,
+.techUsed {
+    text-align: left;
+}
+
 .myResponsibilities {
-    width: 50%;
+    width: 48%;
     float: left;
 }
 
 .techUsed {
-    width: 50%;
+    width: 48%;
     float: right;
 }
 
@@ -306,7 +312,7 @@ a {
     cursor: pointer;
 }
 
-#arrow {
+#resumeArrow {
     width: 25px;
     transform: rotate(90deg);
 }

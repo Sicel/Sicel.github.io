@@ -75,28 +75,71 @@
                 <div class="six columns project" id="project1" onclick="showFullInfo(1)">
                     <img src="img/projects-images/project1/EventEditor_1.png" class="projectImg">
                     <h5 class="projectTitle">Sustainability Basket &#40;WIP&#41;</h5>
-                    <p class="summary">Hey look a summary</p>
-                    <div class="arrowPosition">
-                        <div class="arrowUp"></div>
-                    </div>
+                    <p class="summary">Collaborative project between a few members of the RIT Game Dev Club originally meant for Earth Day. While I'm not sure if development will continue, I know that I'll be continuing to improve the Event Editor I made for the project because I want to see it completed.</p>
+                    <ul class="myResponsibilities">
+                        <li>Event Editor
+                            <ul>
+                                <li>Tool that allows the creation of events that can be interacted with</li>
+                                <li>Interacts with scene using ScriptableObjects</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="techUsed">
+                        <li>Unity
+                            <ul>
+                                <li>Custom Editor</li>
+                                <li>Custom Editor Window</li>
+                                <li>Scriptable Objects</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="six columns project" id="project2" onclick="showFullInfo(2)">
                     <img src="img/projects-images/project2/NodeEditor_1.PNG" class="projectImg">
                     <h5 class="projectTitle">Procrastination</h5>
-                    <p class="summary">What I'm doing right now</p>
-                    <div class="arrowPosition">
-                        <div class="arrowUp"></div>
-                    </div>
+                    <p class="summary">Game made for a Game Jam hosted by the RIT Game Dev Club where the theme was "Everyday Tasks." My team decided to make a game where you avoid doing everyday tasks and procrastinate instead. As this was my first none academic game that I liked, I decided continue working on it in my spare time. The node editor is something that was made after the game jam to make things easier for the future.</p>
+                    <ul class="myResponsibilities">
+                        <li>Dialogue System
+                            <ul>
+                                <li>Allows player to talk to different objects</li>
+                                <li>Allow the player to make choices</li>
+                                <li>Branching dialogue paths</li>
+                            </ul>
+                        </li>
+                        <li>Dialogue Node Editor
+                            <ul>
+                                <li>Tool that allows for quicker implementation of dialogue</li>
+                                <li>Node based</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="techUsed">
+                        <li>Unity
+                            <ul>
+                                <li>Custom Editors</li>
+                                <li>Custom Editor Window</li>
+                                <li>Manual Serialization</li>
+                                <li>Scriptable Objects</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
-
+            <div class="six columns arrow" id="arrow1">
+                <div class="arrowUp"></div>
+            </div>
+            <div class="six columns arrow" id="arrow2">
+                <div class="arrowUp"></div>
+            </div>
         </div>
+
+
 
         <div class="row" id="fullInfo">
 
             <div class="container">
-                <div class="one-third column" id="media">
+                <div class="five columns" id="media">
                     <div id="mediaContainer">
                         <div class="slideshowContainer" id="slideshow1">
                             <a class="prev" onclick="nextSlide(-1, 0)">&#10094;</a>
@@ -124,7 +167,7 @@
                     </div>
                 </div>
 
-                <div class="two-thirds column" id="fullText">
+                <div class="six columns" id="fullText">
                     <h4 class="projectTitle" id="titleInFull">Name</h4>
                     <div id=projectSummary>
                         <p class="summary">Project Summary</p>
@@ -143,20 +186,64 @@
         </div>
 
         <div class="container">
-
+            <div class="six columns arrow" id="arrow3">
+                <div class="arrowDown"></div>
+            </div>
+            <div class="six columns arrow" id="arrow4">
+                <div class="arrowDown"></div>
+            </div>
             <div class="row">
 
                 <div class="six columns project" id="project3" onclick="showFullInfo(3)">
-                    <div class="arrowDown"></div>
                     <img src="img/projects-images/project3/AudioRun_1.png" class="projectImg">
                     <h5 class="projectTitle">Audio Run</h5>
-                    <p class="summary">Endless runner game made using JavaScript for web dev class. Click <a href="audiorun.html">here</a> to play.</p>
+                    <p class="summary">Endless runner game made using JavaScript for web dev class. Aside from the parallax backgrounds, all of the assets were done by me. Click <a href="audiorun.html">here</a> to play. I would advise turning your sound down.</p>
+                    <ul class="myResponsibilities">
+                        <li>Entire game
+                            <ul>
+                                <li>Implementing gravity and ground collision</li>
+                                <li>Infinitely spawning ground at various heights</li>
+                                <li>Adding music and having it change whenever the game is replayed</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="techUsed">
+                        <li>Javascript
+                            <ul>
+                                <li>jQuery</li>
+                                <li>PixiJS</li>
+                                <li>SoundJS</li>
+                            </ul>
+                        </li>
+                        <li>Piskel</li>
+                    </ul>
                 </div>
                 <div class="six columns project" id="project4" onclick="showFullInfo(4)">
-                    <div class="arrowDown"></div>
                     <img src="img/projects-images/project4/Oirem_1.png" class="projectImg">
                     <h5 class="projectTitle">Oirem</h5>
-                    <p class="summary"></p>
+                    <p class="summary">First game that I made using actual scripting. Before this I had used programs like Scratch and Multimedia Fusion without delving too deep into the coding. This was originally meant to be a platformer but, due to some unexpected problems, it was downscaled significantly in order to deliver to have a product our team could turn in.</p>
+                    <ul class="myResponsibilities">
+                        <li>Animation
+                            <ul>
+                                <li>Implemented all animtions from sprite sheets</li>
+                            </ul>
+                        </li>
+                        <li>Gravity / Platforms
+                            <ul>
+                                <li>Implemented gravity for player and a few enemies</li>
+                                <li>Created one-way platforms that can be jumped on if above them but not below</li>
+                            </ul>
+                        </li>
+                        <li>Map Editor
+                            <ul>
+                                <li>Allows for the creation of custom maps using windows forms</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="techUsed">
+                        <li>MonoGame</li>
+                        <li>Windows Forms</li>
+                    </ul>
                 </div>
 
             </div>
@@ -165,7 +252,7 @@
 
     </div>
 
-    <h2 id="resumeTitle" onclick="displayResume()">Resume <img src="img/icons/arrow-in-circle-point-to-up.png" id="arrow"></h2>
+    <h2 id="resumeTitle" onclick="displayResume()">Resume <img src="img/icons/arrow-in-circle-point-to-up.png" id="resumeArrow"></h2>
     <div class="row" id="resume">
         <embed src="pdf/Resume.pdf#toolbar=1&statusbar=1&zoom=scale" type="application/pdf" class="twelve columns" id="pdf" />
         <div>Icons made by <a href="https://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
@@ -206,7 +293,7 @@
                 </div>
                 <input id="submit" name="submit" type="submit" value="Submit">
             </form>
-            <?php include 'php/mailform.php';?>
+            <?php include 'php/mailfor m.php';?>
         </div>
     </div>
 
@@ -222,6 +309,4 @@
     -->
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
-
-</html>
+</body></html>
