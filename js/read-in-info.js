@@ -27,7 +27,7 @@ for (let i = 1; i <= 4; i++) {
         });
     });
 
-    $.get('img/project-images/project' + i + '/Captions.txt', function (data) {
+    $.get('/img/project-images/project' + i + '/Captions.txt', function (data) {
         data.split("\n").forEach(function (sentence) {
             projectCaptions[i - 1].push(sentence);
         });
