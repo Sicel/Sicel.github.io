@@ -74,6 +74,7 @@ header p {
 
 #picOfMe img {
     width: 100%;
+    border-radius: 25px;
 }
 
 /*--------------*/
@@ -178,7 +179,6 @@ header p {
     width: 100%;
     vertical-align: middle;
 }
-
 
 .prev,
 .next {
@@ -315,6 +315,7 @@ a {
 #resumeArrow {
     width: 25px;
     transform: rotate(90deg);
+    transition: .5s;
 }
 
 #resume {
@@ -393,7 +394,11 @@ footer {
 }
 
 /*---Media Queries---*/
-@media (max-width: 550px) {
+@media screen and (max-width: 550px) {
+
+    img {
+        width: 35%;
+    }
 
     #nav li {
         width: 100%;
@@ -401,15 +406,22 @@ footer {
     }
 
     header {
-        margin-top: 120px
+        margin-top: 120px;
     }
 
     header p {
-        transform: translate(-50%, 150%);
+        position: relative;
+        transform: translate(-50%, 225%);
     }
 
-    #picofme img {
-        width: 65%;
+    #picOfMe img {
+        width: 60%;
+    }
+
+    #fullInfo #mediaContainer {
+        position: relative;
+        top: 0;
+        transform: translate(0, 0);
     }
 
     #arrow {
@@ -419,6 +431,12 @@ footer {
     input[name="email"] {
         margin: auto;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    header p {
+        transform: translate(-50%, 150%);
     }
 }
 

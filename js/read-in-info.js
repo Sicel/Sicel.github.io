@@ -14,14 +14,14 @@ let project4Captions = [];
 let projectCaptions = [project1Captions, project2Captions, project3Captions, project4Captions];
 
 for (let i = 1; i <= 4; i++) {
-    $.get('../img/projects-images/project' + i + '/', function (data) {
+    $.get('../img/project-images/project' + i + '/', function (data) {
         $(data).find("a:contains('.png'), a:contains('.PNG')").each(function () {
             projectImages[i - 1].push($(this).attr("href"));
             console.log($(this).attr("href"));
         });
     });
 
-    $.get('../img/projects-images/project' + i + '/Captions.txt', function (data) {
+    $.get('../img/project-images/project' + i + '/Captions.txt', function (data) {
         data.split("\n").forEach(function (sentence) {
             projectCaptions[i - 1].push(sentence);
         });
@@ -30,7 +30,6 @@ for (let i = 1; i <= 4; i++) {
 
 $(document).ready(function () {
     slideshowContainers = document.getElementsByClassName("slideshowContainer");
-    setImages();
 });
 
 function setImages() {
