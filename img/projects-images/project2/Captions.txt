@@ -1,0 +1,2 @@
+Empty Node Editor - Displays list of objects that can have dialogue on the side
+Filled Node Editor - Example of a dialogue tree that could be created with the editor
