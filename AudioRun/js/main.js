@@ -1,105 +1,84 @@
-"use strict";
-$.getScript("AudioRun/js/stage.js");
-$.getScript("AudioRun/js/scenes.js");
-const app = new PIXI.Application(1024, 576);
+//"use strict";
+//$.getScript("AudioRun/js/stage.js");
+//$.getScript("AudioRun/js/scenes.js");
 
-PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+import * as stage from './stage.js';
+import * as scenes from './scenes.js';
+import {
+    utilInit,
+    detectCollision
+} from './utilities.js';
 
-let game = document.querySelector("#game");
+let game;
 
-game.appendChild(app.view);
+export const app = new PIXI.Application(1024, 576);
 
-const appWidth = app.screen.width;
-const appHeight = app.screen.height;
+export const appWidth = app.screen.width;
+export const appHeight = app.screen.height;
 
-PIXI.loader.add(["AudioRun/images/New Piskel.png"]).on("progress", e => {
-    console.log(`progress=${e.progress}`)
-}).load(Setup);
+export function init() {
+    utilInit();
+    scenes.init();
+
+    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+
+    game = document.querySelector("#game");
+    game.appendChild(app.view);
+
+    PIXI.loader.add(["AudioRun/images/New Piskel.png"]).on("progress", e => {
+        console.log(`progress=${e.progress}`)
+    }).load(Setup);
+}
 
 function Setup() {
-    time = 0;
-    time2 = 0;
-
-    groundSlide = 5;
-
-    backGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("AudioRun/images/Cyber Punk/far-buildings.png"), appWidth, 192);
-    backGround.scale.set(3.5);
-    backGround.x = 0;
-    backGround.y = 0;
-    backGround.tilePosition.x = 0;
-    backGround.tilePosition.y = 0;
-
-    middleGround = new PIXI.extras.TilingSprite(PIXI.Texture.fromImage("AudioRun/images/Cyber Punk/back-buildings.png"), appWidth, 192);
-    middleGround.scale.set(2.5);
-    middleGround.x = 0;
-    middleGround.y = 100;
-    middleGround.tilePosition.x = 0;
-    middleGround.tilePosition.y = 0;
-
-    character = new Character(300, 200);
-
-    pauseButton = new Button("pause", appWidth, 0);
-    pauseButton.anchor.set(1, 0);
-    pauseButton.scale.set(1.5);
-    pauseButton.on("mousedown", pause);
-
-    timeLabel = new Label("Time: ", appWidth / 2, 5, 20, "Verdana", 0xFFFFFF);
-    timeLabel.anchor.set(0.5, 0);
-
-    gameScene.addChild(backGround);
-    gameScene.addChild(middleGround);
-    gameScene.addChild(timeLabel);
-    gameScene.addChild(pauseButton);
-    gameScene.addChild(character);
-
-    createGround();
+    scenes.gameSetup(stage);
 
     app.ticker.add(delta => GameLoop(delta));
 }
 
 function inBounds() {
-    if (character.x <= 0) {
-        character.x = 0;
+    if (scenes.character.x <= 0) {
+        scenes.character.x = 0;
     }
-    if (character.x >= appWidth - character.width) {
-        character.x = appWidth - character.width;
+    if (scenes.character.x >= appWidth - scenes.character.width) {
+        scenes.character.x = appWidth - scenes.character.width;
     }
 }
 
 function GameLoop(delta) {
 
-    if (gameStarted) {
+    if (scenes.gameStarted) {
         let grav = 1.5;
         let x, y;
         let onGround = false;
         let speedIncrease = 0.3;
 
-        backGround.tilePosition.x -= 0.128;
-        middleGround.tilePosition.x -= 0.64;
+        scenes.backGround.tilePosition.x -= 0.128;
+        scenes.middleGround.tilePosition.x -= 0.64;
 
-        time += 1 / app.ticker.FPS;
-        time2 += 1 / app.ticker.FPS;
-        timeLabel.text = `Time: ${time.toFixed(2)}`;
+        scenes.updateTime(scenes.time + 1 / app.ticker.FPS);
+        scenes.updateTime2(scenes.time2 + 1 / app.ticker.FPS);
+        scenes.timeLabel.text = `Time: ${scenes.time.toFixed(2)}`;
 
-        character.vy += grav * delta;
-        character.move(delta);
+        scenes.character.vy += grav * delta;
+        scenes.character.move(delta);
 
-        ground = ground.filter(g => g.onScreen);
+        stage.updateGround(stage.ground.filter(g => g.onScreen));
 
-        ground.forEach(function (floor) {
-            floor.x -= groundSlide * delta;
-            if (detectCollision(character, floor)) {
-                if (character.prevY <= floor.y - character.height) {
-                    character.vy = 0;
-                    character.y = floor.y - character.height;
-                    character.x -= groundSlide;
+        stage.ground.forEach(function (floor) {
+            floor.x -= scenes.groundSlide * delta;
+            if (detectCollision(scenes.character, floor)) {
+                if (scenes.character.prevY <= floor.y - scenes.character.height) {
+                    scenes.character.vy = 0;
+                    scenes.character.y = floor.y - scenes.character.height;
+                    scenes.character.x -= scenes.groundSlide;
                     onGround = true;
                 } else {
-                    if (character.prevX > floor.x + (2 * floor.width / 3)) {
-                        character.x = floor.x + floor.width;
+                    if (scenes.character.prevX > floor.x + (2 * floor.width / 3)) {
+                        scenes.character.x = floor.x + floor.width;
                     }
-                    if (character.prevX < floor.x + 50) {
-                        character.x = floor.x - character.width;
+                    if (scenes.character.prevX < floor.x + 50) {
+                        scenes.character.x = floor.x - scenes.character.width;
                     }
                 }
             } else {
@@ -111,30 +90,30 @@ function GameLoop(delta) {
             if (floor.x <= appWidth - 90 && floor.pastBounds == false) {
                 y = Math.floor(Math.random() * (floor.max - floor.min)) + floor.min;
                 x = floor.x + floor.width + Math.floor(Math.random() * (1 * appWidth / 4)) + 30;
-                createGround(x, y, Math.floor(Math.random() * appWidth * 4 / 3) + 100);
+                stage.createGround(x, y, Math.floor(Math.random() * appWidth * 4 / 3) + 100);
                 floor.pastBounds = true;
             }
 
             if (floor.x <= -floor.width) {
                 floor.onScreen = false;
-                gameScene.removeChild(floor);
+                scenes.gameScene.removeChild(floor);
             }
 
         });
 
-        character.onGround = onGround;
+        scenes.character.onGround = onGround;
 
         inBounds();
 
-        if (time2 >= 1) {
-            groundSlide += speedIncrease;
-            character.speed += speedIncrease;
-            time2 = 0;
+        if (scenes.time2 >= 1) {
+            scenes.updateGroundSlide(scenes.groundSlide + speedIncrease);
+            scenes.character.speed += speedIncrease;
+            scenes.updateTime2(0);
         }
 
-        if (character.y > appHeight) {
-            timeSurvived.text = `You Survived for\n  ${time.toFixed(2)} seconds`;
-            gameOver();
+        if (scenes.character.y > appHeight) {
+            scenes.updateTimeSurvived();
+            scenes.gameOver();
         }
     }
 }

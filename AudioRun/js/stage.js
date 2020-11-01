@@ -1,5 +1,13 @@
-"use strict";
-let ground = [];
+//"use strict";
+import {
+    appWidth,
+    appHeight
+} from './main.js';
+import {
+    gameScene
+} from './scenes.js';
+
+export let ground = [];
 
 let buildings = [
     new PIXI.Texture.fromImage("AudioRun/images/Buildings/Buildings/large_building_1.png"),
@@ -7,7 +15,7 @@ let buildings = [
     new PIXI.Texture.fromImage("AudioRun/images/Buildings/Buildings/small_building_1.png")
 ];
 
-function createGround(x = 0, y = 350, width = 600, height = 250) {
+export function createGround(x = 0, y = 350, width = 600, height = 250) {
     let texture;
     if (width <= 455) {
         texture = buildings[2];
@@ -30,4 +38,8 @@ function createGround(x = 0, y = 350, width = 600, height = 250) {
     ground1.onScreen = true;
     ground.push(ground1);
     gameScene.addChild(ground1);
+}
+
+export function updateGround(newGround) {
+    ground = newGround;
 }

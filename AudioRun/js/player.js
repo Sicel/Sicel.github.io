@@ -1,5 +1,17 @@
-"use strict";
-class Character extends PIXI.Sprite {
+//"use strict";
+import {
+    left,
+    up,
+    right,
+    down,
+    a,
+    w,
+    d,
+    s
+} from './utilities.js';
+
+
+export class Character extends PIXI.Sprite {
     constructor(x = 300, y = 300) {
         super(PIXI.loader.resources["AudioRun/images/New Piskel.png"].texture);
         this.scale.set(1);

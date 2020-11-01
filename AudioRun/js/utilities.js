@@ -1,25 +1,29 @@
-"use strict";
-let left, up, right, down, a, w, d, s;
+// "use strict";
+export let left, up, right, down, a, w, d, s;
 let menuMusic = [];
-let inGameMusic = [];
+export let inGameMusic = [];
+export let sound;
+export let allSongsLoaded = false;
 let endMusic = [];
+let songsLoaded = 0;
+let loadCircle;
+let gameWindow;
 
-inGameMusic = [
-    {
-        src: 'InGame/Punch Deck - Feel the Pulse.wav',
-        id: 'game0'
-    },
-    {
-        src: 'InGame/Punch Deck - Organic to Synthetic.wav',
-        id: 'game1'
-    },
-    {
-        src: 'InGame/Signal in the Noise.wav',
-        id: 'game2'
-    }
-];
+//inGameMusic = [
+//    {
+//        src: 'InGame/Punch Deck - Feel the Pulse.wav',
+//        id: 'game0'
+//    },
+//    {
+//        src: 'InGame/Punch Deck - Organic to Synthetic.wav',
+//        id: 'game1'
+//    },
+//    {
+//        src: 'InGame/Signal in the Noise.wav',
+//        id: 'game2'
+//    }
+//];
 
-createjs.Sound.registerSounds(inGameMusic, "AudioRun/music/");
 
 function keyboard(value) {
     let key = {};
@@ -61,16 +65,46 @@ function keyboard(value) {
     return key;
 }
 
-left = keyboard("ArrowLeft");
-up = keyboard("ArrowUp");
-right = keyboard("ArrowRight");
-down = keyboard("ArrowDown");
-a = keyboard("KeyA");
-w = keyboard("KeyW");
-d = keyboard("KeyD");
-s = keyboard("KeyS");
+export function utilInit() {
+    gameWindow = document.querySelector("#game");
+    loadCircle = document.querySelector("#loader");
 
-function detectCollision(obj1, obj2) {
+    inGameMusic = [
+        {
+            src: 'InGame/Punch Deck - Feel the Pulse.wav',
+            id: 'game0'
+    },
+        {
+            src: 'InGame/Punch Deck - Organic to Synthetic.wav',
+            id: 'game1'
+    },
+        {
+            src: 'InGame/Signal in the Noise.wav',
+            id: 'game2'
+    }
+];
+    createjs.Sound.registerSounds(inGameMusic, "AudioRun/music/");
+    createjs.Sound.on('fileload', loadAudio);
+    createjs.Sound.volume = 0.25;
+    left = keyboard("ArrowLeft");
+    up = keyboard("ArrowUp");
+    right = keyboard("ArrowRight");
+    down = keyboard("ArrowDown");
+    a = keyboard("KeyA");
+    w = keyboard("KeyW");
+    d = keyboard("KeyD");
+    s = keyboard("KeyS");
+}
+
+function loadAudio(event) {
+    songsLoaded++;
+    if (songsLoaded == inGameMusic.length) {
+        loadCircle.style.display = "none";
+        gameWindow.style.display = "block";
+    }
+}
+
+export function detectCollision(obj1, obj2) {
     let collision, combinedHalfWidths, combinedHalfHeights, vx, vy;
 
     collision = false;
@@ -104,7 +138,7 @@ function detectCollision(obj1, obj2) {
     return collision;
 }
 
-class Label extends PIXI.Text {
+export class Label extends PIXI.Text {
     constructor(text = "", x = 0, y = 0, fontSize = 40, fontFamily = "Verdana", textColor = 0x000000) {
         super(text);
         this.x = x;
@@ -117,7 +151,7 @@ class Label extends PIXI.Text {
     }
 }
 
-class Button extends PIXI.Sprite {
+export class Button extends PIXI.Sprite {
     constructor(type = "", x = 0, y = 0, width = 300, height = 150, color = 0xD3D3D3) {
         super();
         switch (type) {
