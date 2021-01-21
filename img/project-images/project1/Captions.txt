@@ -1,1 +1,0 @@
-Event editor - Creates events and choices for them. The events are listed on the side and the currently displaying event can be switched by clicking on it

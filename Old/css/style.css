@@ -1,0 +1,443 @@
+* {
+    box-sizing: border-box;
+}
+
+/*---Navigation---*/
+#nav {
+    list-style: none;
+    width: 100%;
+    background-color: aliceblue;
+    position: fixed;
+    top: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#nav li {
+    display: inline-block;
+    padding: 3px;
+    border-right: 1px solid white;
+    margin: auto;
+}
+
+/*--------------*/
+
+/*---Header---*/
+header {
+    height: 200px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: azure;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+}
+
+header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+header p {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*--------------*/
+
+/*---Section---*/
+.section1 {
+    background-color: white;
+}
+
+.section2 {
+    background-color: azure;
+}
+
+/*-------------*/
+
+/*---About Me---*/
+#aboutMeHead {
+    text-align: center;
+}
+
+#picOfMe {
+    text-align: center;
+}
+
+#picOfMe img {
+    width: 100%;
+    border-radius: 25px;
+}
+
+/*--------------*/
+
+/*---Projects---*/
+#projects {
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.project {
+    margin: 20px 0;
+}
+
+.project .summary,
+.project .myResponsibilities,
+.project .techUsed {
+    display: none;
+}
+
+.projectImg {
+    width: 300px;
+}
+
+.projectTitle,
+.projectDescription {
+    margin-bottom: 0;
+}
+
+.projectDescription {
+    margin: 3px auto;
+}
+
+.arrow {
+    margin: 0;
+    visibility: hidden;
+}
+
+.arrowUp,
+.arrowDown {
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.arrowUp {
+    border-bottom: 20px solid rgb(49, 49, 49);
+}
+
+.arrowDown {
+    border-top: 20px solid rgb(52, 52, 52);
+}
+
+/*-----Full Info-----*/
+#fullInfo {
+    width: 110%;
+    position: relative;
+    left: -5%;
+    background-color: dimgrey;
+    box-shadow: inset 0px 1px 30px 7px;
+    display: none;
+}
+
+/*#fullInfo .container {
+    width: 75%;
+    margin: auto;
+}*/
+
+/*--------Media---------*/
+#media {
+    margin: 20px 0;
+}
+
+#mediaContainer {
+    float: right;
+    position: absolute;
+    width: inherit;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-right: 0px;
+}
+
+/*---------Slideshow---------*/
+.slideshowContainer {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+.myImages1,
+.myImages2,
+.myImages3,
+.myImages4 {
+    display: none;
+}
+
+.slideshowImages {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.imageCaption {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    bottom: 8px;
+    text-align: center;
+}
+
+.numberText {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top 0;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/*---------------------------*/
+
+#mediaButtons {
+    border-top: 1px solid grey;
+    display: inline-block;
+    margin: auto;
+    width: 20%;
+    display: none;
+}
+
+.mediaIcons {
+    display: block;
+    margin: auto;
+    background-color: white;
+    border: 1px solid silver;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.mediaIcons:hover,
+.mediaIcons:active {
+    background-color: gray;
+}
+
+/*----------------------*/
+
+/*---------Text---------*/
+#fullText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: aliceblue;
+}
+
+#projectSummary {
+    margin: auto;
+}
+
+.myResponsibilities,
+.techUsed {
+    text-align: left;
+}
+
+.myResponsibilities {
+    width: 48%;
+    float: left;
+}
+
+.techUsed {
+    width: 48%;
+    float: right;
+}
+
+/*----------------------*/
+
+/*-------------------*/
+
+/*--------------*/
+
+a {
+    text-decoration: none;
+}
+
+/*---Resume---*/
+#resumeTitle {
+    text-align: center;
+}
+
+#resumeTitle:hover {
+    cursor: pointer;
+}
+
+#resumeArrow {
+    width: 25px;
+    transform: rotate(90deg);
+    transition: .5s;
+}
+
+#resume {
+    display: none;
+}
+
+
+#pdf {
+    height: 800px;
+}
+
+/*------------*/
+
+/*---Contact Me---*/
+#contactMe h2 {
+    text-align: center;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+input,
+textArea {
+    background: #efefef;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 3px;
+    font-size: 0.9em;
+    color: #3a3a3a;
+}
+
+input[name="name"],
+input[name="email"],
+input[name="human"] {
+    width: 95%;
+}
+
+input[name="email"],
+#email {
+    margin-left: 5%;
+}
+
+select[name="reason"] {
+    width: 100%;
+}
+
+textArea {
+    height: 200px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#submit {
+    display: block;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: gray;
+    color: white;
+    margin: auto;
+}
+
+/*----------------*/
+
+footer {
+    position: fixed;
+}
+
+/*---Media Queries---*/
+@media screen and (max-width: 550px) {
+
+    img {
+        width: 35%;
+    }
+
+    #nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    header {
+        margin-top: 120px;
+    }
+
+    header p {
+        position: relative;
+        transform: translate(-50%, 225%);
+    }
+
+    #picOfMe img {
+        width: 60%;
+    }
+
+    #fullInfo #mediaContainer {
+        position: relative;
+        top: 0;
+        transform: translate(0, 0);
+    }
+
+    #arrow {
+        width: 20px;
+    }
+
+    input[name="email"] {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    header p {
+        transform: translate(-50%, 150%);
+    }
+}
+
+/*-------------------*/

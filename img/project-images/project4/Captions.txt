@@ -1,4 +1,0 @@
-Main Menu
-Instructions
-In-game
-External Tool - Allows the creation of custom maps, enemies and the amount, and the types of attacks the player can use

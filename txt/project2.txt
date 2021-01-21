@@ -1,2 +1,0 @@
-img/project-images/project2/NodeEditor_1.PNG
-img/project-images/project2/NodeEditor_2.PNG

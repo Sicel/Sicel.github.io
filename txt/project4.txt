@@ -1,4 +1,0 @@
-img/project-images/project4/Oirem_1.png
-img/project-images/project4/Oirem_2.png
-img/project-images/project4/Oirem_3.png
-img/project-images/project4/Oirem_4.png
