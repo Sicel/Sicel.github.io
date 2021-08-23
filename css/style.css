@@ -130,14 +130,14 @@ header p {
 #projectGrid {
     display: grid;
     margin: auto;
-    grid-template-columns: 50% 50%;
-    grid-gap: 5px;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 7px;
     justify-content: center;
     align-content: center;
     text-align: center;
-    overflow-x: hidden;
-    width: 95%;
-    max-width: 1200px;
+    overflow: hidden;
+    width: 75%;
+    max-width: 1400px;
 }
 
 #projectGrid h2 {
@@ -167,6 +167,7 @@ header p {
     margin-bottom: 0px;
     justify-content: center;
     float: none;
+    height: 66%;
 }
 
 .projectTitle,
@@ -208,15 +209,18 @@ header p {
     background-color: rgb(30, 30, 30);
 }
 
+#projectPage button {
+    color: rgb(216, 216, 216);
+}
+
 #projectPage::before,
 #projectPage::after {
     display: none;
 }
 
 .exitPage {
-    position: absolute;
-    top: 15px;
-    right: 25px;
+    position: fixed;
+    right: 50px;
     font-size: 24pt;
 }
 
@@ -236,9 +240,11 @@ header p {
     font-weight: 400;
 }
 
+/*
 #projectVid video {
     width: 90%;
 }
+*/
 
 .mediaSubtitle {
     white-space: pre-line;

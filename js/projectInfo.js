@@ -1,40 +1,12 @@
 'use strict';
 
-export let projectMinis = [
-    {
-        i: 0,
-        src: "img/project-images/project1/SquareUp_1.png",
-        name: "Square Up",
-        tagline: "Small rhythm game made for PennApps XXI hackathon.",
-        year: 2020
-    },
-    {
-        i: 1,
-        src: "img/project-images/project2/TEIN_1.png",
-        name: "The End Is Near!",
-        tagline: "It's a lovely day for an apocalypse.",
-        year: 2019
-    },
-    {
-        i: 2,
-        src: "img/project-images/project3/Procastination_1.png",
-        name: "Procrastination",
-        tagline: "Working? Imagine that.",
-        year: 2018
-    },
-    {
-        i: 3,
-        src: "img/project-images/project4/AudioRun_1.png",
-        name: "AudioRun",
-        tagline: "Music's going, and you should too.",
-        year: 2018
-    }
-]
-
-export let projectPages = [
-    {
-        download: true,
-        downloadLink: "https://drive.google.com/uc?export=download&id=1CyL31CeCQRC6WiG72YmGi1hdm_OE9VlI",
+let squareUp = {
+    page: {
+        link: true,
+        linkInfo: {
+            url: "https://drive.google.com/uc?export=link&id=1CyL31CeCQRC6WiG72YmGi1hdm_OE9VlI",
+            text: "Download here"
+        },
         embed: true,
         embedInfo: {
             html: `<iframe width="768" height="543" src="https://www.youtube.com/embed/zvmQK31jiic" frameborder="0" allowfullscreen></iframe>`,
@@ -72,9 +44,18 @@ export let projectPages = [
             subtitle: "Instructions"
         }]
     },
-    {
-        download: false,
-        downloadLink: "",
+    mini: {
+        src: "img/project-images/project1/SquareUp_1.png",
+        name: "Square Up",
+        tagline: "Small rhythm game made for PennApps XXI hackathon.",
+        year: 2020
+    }
+}
+
+let tein = {
+    page: {
+        link: false,
+        linkInfo: { },
         embed: false,
         embedInfo: {
             html: ``,
@@ -115,9 +96,19 @@ export let projectPages = [
             subtitle: "Location Event\nEach building has a set of events that effect the player's stats"
         }]
     },
-    {
-        download: false,
-        downloadLink: "",
+    mini: {
+        src: "img/project-images/project2/TEIN_1.png",
+        name: "The End Is Near!",
+        tagline: "It's a lovely day for an apocalypse.",
+        year: 2019
+
+    }
+}
+
+let procrastination = {
+    page: {
+        link: false,
+        linkInfo: { },
         embed: true,
         embedInfo: {
             html: `<iframe width="768" height="543" src="https://www.youtube.com/embed/ZfL3Q50-KPk" frameborder="0" allowfullscreen></iframe>`,
@@ -158,9 +149,21 @@ export let projectPages = [
             subtitle: ""
         },]
     },
-    {
-        download: true,
-        downloadLink: "https://sicel.github.io/audiorun.html",
+    mini: {
+        src: "img/project-images/project3/Procastination_1.png",
+        name: "Procrastination",
+        tagline: "Working? Imagine that.",
+        year: 2018
+    }
+}
+
+let audioRun = {
+    page: {
+        link: false,
+        linkInfo: {
+            url: "https://sicel.github.io/audiorun.html",
+            text: "Play here"
+        },
         embed: true,
         embedInfo: {
             html: ``,
@@ -195,5 +198,112 @@ export let projectPages = [
             src: "img/project-images/project4/AudioRun_3.png",
             subtitle: "In-game screen cap"
         }]
+    },
+    mini: {
+        src: "img/project-images/project4/AudioRun_1.png",
+        name: "AudioRun",
+        tagline: "Music's going, and you should too.",
+        year: 2018
     }
+}
+
+let uprooted = {
+    page: {
+        link: true,
+        linkInfo: {
+            url: "https://uprootedgame.carrd.co/",
+            text: "Visit our game site for more info!"
+        },
+        embed: true,
+        embedInfo: {
+            html: `<video width="768" height="543" src="https://uprootedgame.carrd.co/assets/videos/video01.mp4?v=3559843c" controls>`,
+            text: "Very early gameplay taken from our game site.",
+        },
+        description: "A narrative-driven action adventure game following a mage and a paladin working to hack a virus that's corrupting the forest. Currently being developed.",
+        responsibilities: [{
+            main: "Backend Systems",
+            details: [
+                "Character Controller",
+                "Hitboxes for combat",
+                "Dialogue System"
+            ]
+        }],
+        techUsed: [{
+            main: "Unity",
+            details: [
+                "Animation Controller",
+                "Scriptable Objects",
+                "Custom Editors"
+            ]
+        }],
+        images: [{
+            src: "https://uprootedgame.carrd.co/assets/images/image02.jpg?v=3559843c",
+            subtitle: "Concept"
+        }]
+    },
+    mini: {
+        src: "https://uprootedgame.carrd.co/assets/images/image02.jpg?v=3559843c",
+        name: "UpRooted",
+        tagline: "Finn is a gorilla",
+        year: "TBD"
+    }
+}
+
+let rhythmRing = {
+    page: {
+        link: true,
+        linkInfo: {
+            url: "https://play.google.com/store/apps/details?id=com.KelpfulStudios.RhythmRingRevolution&hl=en_US&gl=US",
+            text: "Download here (also available for IOS)"
+        },
+        embed: true,
+        embedInfo: {
+            html: `<iframe width="768" height="543" src="https://www.youtube.com/embed/JwgQsXmxpfA" frameborder="0" allowfullscreen></iframe>`,
+            text: "Video courtesy of Kelpful Studios",
+        },
+        description: "A casual rhythm game with procedurally generated music and dynamic tempo based on your performance",
+        responsibilities: [{
+            main: "Music",
+            details: [
+                "Designed music themes using a procedural music tool",
+            ]
+        }],
+        techUsed: [{
+            main: "Unity",
+            details: [
+                "Music Integration",
+            ]
+        }],
+        images: [{
+            src: "img/project-images/RhythmRing/Title.png",
+            subtitle: "Title Screen"
+        }, {
+            src: "img/project-images/RhythmRing/Themes.png",
+            subtitle: "Theme selection"
+        }]
+    },
+    mini: {
+        src: "img/project-images/RhythmRing/Title.png",
+        name: "Rhythm Ring Revolution",
+        tagline: "By Kelpful Studios",
+        year: "2021"
+    }
+}
+
+export let projectMinis = [
+    uprooted.mini,
+    rhythmRing.mini,
+    squareUp.mini,
+    tein.mini,
+    procrastination.mini,
+    audioRun.mini
+]
+
+export let projectPages = [
+    uprooted.page,
+    rhythmRing.page,
+    squareUp.page,
+    tein.page,
+    procrastination.page,
+    audioRun.page
 ]

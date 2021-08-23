@@ -6,49 +6,7 @@ import {
 
 let nm, hm, pm, ppm, cm;
 let body;
-
-/*
-const app = Vue.createApp({
-    data() {
-        return {
-            // Header
-            scrollCheckPoint: 400,
-            currentScroll: 0,
-            opacity: 1,
-            element: undefined,
-
-            // Projects
-            projects: null,
-            selectedProject: { },
-            scrollPos: 0,
-
-            // Project Page
-            //selectedProject: { },
-            show: false,
-            scrollPos: 0
-        }
-    },
-    mounted() {
-        // Header
-        this.element = document.querySelector('#headerContent');
-        window.addEventListener("scroll", this.slideFade);
-    },
-    methids: {
-        // Header
-        slideFade(event) {
-            this.currentScroll = window.pageYOffset;
-            if (this.currentScroll <= this.scrollCheckPoint) {
-                this.opacity = 1 - this.currentScroll / this.scrollCheckPoint;
-            } else {
-                this.opacity = 0;
-            }
-            
-            this.element.style.opacity = this.opacity;
-        }
-
-    }
-})
-*/
+let currentIndex = 0;
 
 const navBar = Vue.createApp({
     data() {
@@ -140,7 +98,7 @@ const projects = Vue.createApp({
     data() {
         return {
             projects: null,
-            scrollPos: 0
+            scrollPos: 0,
         }
     },
     methods: {
@@ -223,16 +181,24 @@ window.onload = _ => {
 }
 
 projects.component('project-mini', {
+    data() {
+        return {
+            index: 0
+        }
+    },
     props: ['project'],
     template: `
-    <div class="project" @click="$emit('showPage', project.i)">
-        <img :src=project.src class="projectImg">
+    <div class="project" @click="$emit('showPage', index)">
+        <img class="projectImg" :src=project.src>
         <div class="projectText">
             <h5 class="projectTitle"> {{ project.name }} </h5>
             <p class="projectTagline"> {{ project.tagline }} </p>
             <p class="projectYear"> {{ project.year }} </p>
         </div>
-    </div>`
+    </div>`,
+    created() {
+        this.index = currentIndex++;
+    }
 });
 
 //projects.component('project-page')
